@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "demo-bounce",
+    "slug": "demo-bounce",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icons/places.png",
+    "splash": {
+      "image": "./assets/icons/places-adaptive.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#171717"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android" : {
+      "permissions": [
+        "CAMERA"
+      ],
+      "package": "com.ramneekmind_barcode",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

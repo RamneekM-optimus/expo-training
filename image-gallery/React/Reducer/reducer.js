@@ -5,13 +5,15 @@ import  imagesReducer  from "./imageReducer.js";
 import  loadingReducer  from "./loadingStateReducer.js";
 import paginationReducer from "./paginationReducer";
 import dimensionReducer from "./uiReducer";
+import authReducer from "./authReducer";
 
 const rootReducer = combineReducers({
     isLoading: loadingReducer,
     images: imagesReducer,
     error: errorReducer,
     pageIndex: paginationReducer,
-    dimensions: dimensionReducer
+    dimensions: dimensionReducer,
+    authData: authReducer
 });
 
 export default rootReducer;

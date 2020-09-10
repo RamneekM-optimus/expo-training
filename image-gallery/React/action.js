@@ -1,4 +1,4 @@
-import {IMAGES} from "../Constant/constant";
+import {IMAGES, LOGIN} from "../Constant/constant";
 
 const loadImages = () => ({
     type: IMAGES.LOAD,
@@ -28,4 +28,23 @@ const dimensionAction = (data, type) => ({
     data: data
 });
 
-export {loadImages, setError, setImages, setCurrentPageIndex, setLoader, dimensionAction};
+const loginUserAction = (data) => ({
+    type: LOGIN.LOGIN_USER,
+    credential: data
+});
+
+const setLoginDetailsAction = (data) => ({
+    type: LOGIN.LOGIN_SUCCESS,
+    credential: data
+});
+
+const clearAuthData = () => ({
+    type: LOGIN.CLEAR_AUTH_DATA,
+});
+
+const logout = (data) => ({
+    type: LOGIN.LOGOUT_SUCCESS,
+});
+
+export {loadImages, setError, setImages, setCurrentPageIndex, setLoader, dimensionAction, 
+    loginUserAction, setLoginDetailsAction, clearAuthData};

@@ -9,7 +9,6 @@ import { AntDesign } from '@expo/vector-icons';
 
 export default function Header(props) {
     const handleCLick = () => {
-        console.log("click")
         props.navigation.navigate("Home")
     }
 

@@ -1,12 +1,16 @@
 import { all } from 'redux-saga/effects';
-import { put, call, takeEvery, select } from 'redux-saga/effects';
-
+import { put, call, takeEvery, select, take, fork } from 'redux-saga/effects';
+import {LOGIN} from "../Constant/constant";
 import imagesSaga from './imageSaga';
 import uiSaga from './uiSaga';
+import watchLogin from "./authenticationSaga";
 
-//watcher saga  
+//watcher saga
 export default function* rootSaga() {
 
-    //imageSaga is worker saga
-    yield all([imagesSaga()]);
+    while (true) {
+        const {credential} = yield take(LOGIN.LOGIN_USER);
+        const task = yield fork(watchLogin, credential);
+        yield all([imagesSaga()]);
+    }
 }

@@ -17,14 +17,16 @@ export class Home extends Component {
         super(props);
     }
 
+    // componentDidMount() {
+    //     console.log(this.props);
+    // }
+
 
     handleClick = () => {
-        console.log("clicked", this.props);
         this.props.navigation.navigate("Gallery");
     }
 
     render() {
-        console.log("home",this.props)
         return (
             <View style={styles.container}>
             <ScrollView style = {styles.scroll}>
@@ -106,11 +108,11 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapStateToProps = ({ dimension }) => ({
-    dimension
+const mapStateToProps = ({ authData }) => ({
+    authData
 });
 
 export default connect(
     mapStateToProps,
     {}
-  )(Home);
+)(Home);

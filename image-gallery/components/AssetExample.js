@@ -10,6 +10,7 @@ import Header from "./Header";
 class ImageGrid extends Component {
 
     componentDidMount() {
+        console.log("asses", this.props.authData);
         this.props.loadImages();
     }
 
@@ -87,12 +88,13 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapStateToProps = ({ isLoading, images, error, imageStats, pageIndex }) => ({
+const mapStateToProps = ({ isLoading, images, error, imageStats, pageIndex, authData }) => ({
     isLoading,
     images,
     error,
     imageStats,
-    pageIndex
+    pageIndex,
+    authData
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -10,6 +10,7 @@ import AssetExample from './components/AssetExample';
 
 import {dimensionAction} from "./React/action";
 import Navigation from "./Navigation/navigation";
+import {clearAuthData} from "./React/action";
 
 function ReduxApp(props) {
 
@@ -18,17 +19,20 @@ function ReduxApp(props) {
         const width = Dimensions.get('window').width;
           const height = Dimensions.get('window').height;
           props.dimensionAction({width, height}, "DIMENSION");
-          console.log("alert")
       }
       Dimensions.addEventListener('change', updateLayout);
       return () => {
           Dimensions.removeEventListener('change', updateLayout);
       }
     },[]);
+
+    React.useEffect(() => {
+      console.log("reduxxxx appxpxpxpx",props.dimension);
+    });
   
     return (
       <View style={styles.container}>
-      <Navigation></Navigation>
+      <Navigation clearAuthData = {props.clearAuthData}></Navigation>
     </View>
     );
   }
@@ -39,6 +43,7 @@ function ReduxApp(props) {
   
   const mapDispatchToProps = dispatch => ({
     dimensionAction: (data, type) => dispatch(dimensionAction(data, type)),
+    clearAuthData: () => dispatch(clearAuthData())
   });
   
   const styles = StyleSheet.create({
